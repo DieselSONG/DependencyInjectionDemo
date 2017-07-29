@@ -1,1 +1,2 @@
 D:\visual studio 2015\Projects\DependencyInjectionDemo\DependencyInjectionDemo\bin\Debug\DependencyInjectionDemo.exe.config
+D:\资料\github\DependencyInjectionDemo\CSharp\DependencyInjectionDemo\DependencyInjectionDemo\bin\Debug\DependencyInjectionDemo.exe.config
