@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace DependencyInjectionDemo.DependencyInjection
 {
-    public class SystemTimeProvider : ITimeProvider
+    interface ILocationProvider
     {
-        public DateTime CurrentDate { get { return DateTime.Now; } }
+        string Location { get; }
     }
-
 }

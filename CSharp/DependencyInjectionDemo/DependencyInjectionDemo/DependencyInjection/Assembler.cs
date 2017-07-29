@@ -23,7 +23,6 @@ namespace DependencyInjectionDemo.DependencyInjection
         /// <summary>
         /// 根据客户程序需要的抽象类型选择相应的实体类型，并返回类型实例
         /// </summary>
-        /// <typeparam name="T">抽象类型（抽象类/接口/或者某种基类）</typeparam>
         /// <returns>实体类型实例</returns>
         public object Create(Type type)     // 主要用于非泛型方式调用
         {
