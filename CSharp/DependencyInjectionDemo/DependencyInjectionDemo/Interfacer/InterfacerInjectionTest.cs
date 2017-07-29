@@ -36,7 +36,7 @@ namespace DependencyInjectionDemo.Interfacer
     {
         public static void Test()
         {
-            ITimeProvider timeProvider = (new Assembler()).Create<ITimeProvider>();
+            ITimeProvider timeProvider = (new Assembler()).Create("SystemTimeProvider");
             IObjectWithTimeProvider objectWithTimeProvider = new Client();
             objectWithTimeProvider.TimeProvider = timeProvider; // 通过接口方式注入
         }

@@ -24,7 +24,7 @@ namespace DependencyInjectionDemo.Constructor
     {
         public static void Test()
         {
-            ITimeProvider timeProvider = (new Assembler()).Create<ITimeProvider>();
+            ITimeProvider timeProvider = (new Assembler()).Create("SystemTimeProvider");
             Client client = new Client(timeProvider);   // 在构造函数中注入
         }
     }

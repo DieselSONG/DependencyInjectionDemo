@@ -9,32 +9,38 @@ namespace DependencyInjectionDemo.DependencyInjection
     public class Assembler
     {
         /// <summary>
-        /// 保存“抽象类型/实体类型”对应关系的字典
+        /// 保存“类型名称/实体类型”对应关系的字典
         /// </summary>
-        private static Dictionary<Type, Type> dictionary = new Dictionary<Type, Type>();
+        private static Dictionary<string, Type> dictionary = new Dictionary<string, Type>();
 
+        // 实际的配置信息可以从外层机制获得,例如通过xml文件配置.
         static Assembler()
         {
-            // 注册抽象类型需要使用的实体类型
-            // 实际的配置信息可以从外层机制获得,例如通过配置定义.
-            dictionary.Add(typeof(ITimeProvider), typeof(SystemTimeProvider));
+            dictionary.Add("SystemTimeProvider", typeof(SystemTimeProvider));
+            dictionary.Add("UtcNowTimeProvider", typeof(UtcNowTimeProvider));
+        }
+
+        static void RegisterType(string name,Type type)
+        {
+            if ((type == null) || dictionary.ContainsKey(name)) throw new NullReferenceException();
+            dictionary.Add(name, type);
+        }
+
+        static void Remove(string name)
+        {
+            if (string.IsNullOrEmpty(name)) throw new NullReferenceException();
+            dictionary.Remove(name);
         }
 
         /// <summary>
-        /// 根据客户程序需要的抽象类型选择相应的实体类型，并返回类型实例
+        /// 根据程序需要的类型名称选择相应的实体类型，并返回类型实例
         /// </summary>
-        /// <returns>实体类型实例</returns>
-        public object Create(Type type)     // 主要用于非泛型方式调用
+        public ITimeProvider Create(string type)
         {
             if ((type == null) || !dictionary.ContainsKey(type)) throw new NullReferenceException();
             Type targetType = dictionary[type];
-            return Activator.CreateInstance(targetType);
+            return (ITimeProvider)Activator.CreateInstance(targetType);
         }
 
-        /// <typeparam name="T">抽象类型（抽象类/接口/或者某种基类）</typeparam>
-        public T Create<T>()    // 主要用于泛型方式调用
-        {
-            return (T)Create(typeof(T));
-        }
     }
 }

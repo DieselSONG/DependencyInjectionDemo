@@ -1,2 +1,6 @@
 D:\visual studio 2015\Projects\DependencyInjectionDemo\DependencyInjectionDemo\bin\Debug\DependencyInjectionDemo.exe.config
 D:\资料\github\DependencyInjectionDemo\CSharp\DependencyInjectionDemo\DependencyInjectionDemo\bin\Debug\DependencyInjectionDemo.exe.config
+D:\资料\github\DependencyInjectionDemo\CSharp\DependencyInjectionDemo\DependencyInjectionDemo\bin\Debug\DependencyInjectionDemo.exe
+D:\资料\github\DependencyInjectionDemo\CSharp\DependencyInjectionDemo\DependencyInjectionDemo\bin\Debug\DependencyInjectionDemo.pdb
+D:\资料\github\DependencyInjectionDemo\CSharp\DependencyInjectionDemo\DependencyInjectionDemo\obj\Debug\DependencyInjectionDemo.exe
+D:\资料\github\DependencyInjectionDemo\CSharp\DependencyInjectionDemo\DependencyInjectionDemo\obj\Debug\DependencyInjectionDemo.pdb

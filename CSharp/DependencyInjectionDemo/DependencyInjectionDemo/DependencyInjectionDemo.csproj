@@ -46,8 +46,6 @@
     <Compile Include="Attributer\AttributerInjectionTest.cs" />
     <Compile Include="Constructor\ConstructorInjectionTest.cs" />
     <Compile Include="DependencyInjection\Assembler.cs" />
-    <Compile Include="DependencyInjection\GeographicLocationProvider.cs" />
-    <Compile Include="DependencyInjection\ILocationProvider.cs" />
     <Compile Include="DependencyInjection\ITimeProvider.cs" />
     <Compile Include="DependencyInjection\SystemTimeProvider.cs" />
     <Compile Include="Interfacer\InterfacerInjectionTest.cs" />

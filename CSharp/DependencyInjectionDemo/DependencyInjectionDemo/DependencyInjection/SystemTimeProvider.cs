@@ -11,4 +11,9 @@ namespace DependencyInjectionDemo.DependencyInjection
         public DateTime CurrentDate { get { return DateTime.Now; } }
     }
 
+    public class UtcNowTimeProvider : ITimeProvider
+    {
+        public DateTime CurrentDate { get { return DateTime.UtcNow; } }
+    }
+
 }

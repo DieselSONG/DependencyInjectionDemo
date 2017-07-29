@@ -10,9 +10,7 @@ namespace DependencyInjectionDemo.Attributer
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     sealed class DecoratorAttribute : Attribute
     {
-        /// <summary>
-        /// 实现客户类型实际需要的抽象类型的实体类型实例，即带注入到客户类型的内容
-        /// </summary>
+
         public readonly object Injector;
         private Type type;
 
@@ -20,12 +18,9 @@ namespace DependencyInjectionDemo.Attributer
         {
             if (type == null) throw new ArgumentNullException("type");
             this.type = type;
-            Injector = (new Assembler()).Create(this.type);
+            Injector = (new Assembler()).Create("SystemTimeProvider");
         }
 
-        /// <summary>
-        /// 客户类型需要的抽象对象类型
-        /// </summary>
         public Type Type { get { return this.type; } }
     }
 
@@ -51,11 +46,11 @@ namespace DependencyInjectionDemo.Attributer
     [Decorator(typeof(ITimeProvider))]
     class Client
     {
-        public int GetYear()
+        public string GetTime()
         {
             // 与其他方式注入不同的是，这里使用的ITimeProvider来自自己的Attribute
             ITimeProvider provider = AttributeHelper.Injector<ITimeProvider>(this);
-            return provider.CurrentDate.Year;
+            return provider.CurrentDate.ToString();
         }
     }
 
@@ -64,7 +59,7 @@ namespace DependencyInjectionDemo.Attributer
         public static void Test()
         {
             Client client = new Client();
-            int year = client.GetYear();
+            string time = client.GetTime();
         }
     }
 }

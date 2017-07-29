@@ -25,7 +25,7 @@ namespace DependencyInjectionDemo.Setter
     {
         public static void Test()
         {
-            ITimeProvider timeProvider = (new Assembler()).Create<ITimeProvider>();
+            ITimeProvider timeProvider = (new Assembler()).Create("SystemTimeProvider");
             Client client = new Client();
             client.TimeProvider = timeProvider; // 通过Setter实现注入
         }
